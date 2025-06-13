@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://blhxwp3wkkdfc"]
+
+[ext_resource type="Shader" uid="uid://citvqxhj6h854" path="res://volumetric sky/clouds.gdshader" id="1_0w11w"]
+[ext_resource type="CompressedTexture3D" uid="uid://dbfbysid168mx" path="res://volumetric sky/perlworlnoise.tga" id="2_1m4bc"]
+[ext_resource type="Texture2D" uid="uid://d1x63nupfauqs" path="res://volumetric sky/weather.bmp" id="2_xmugm"]
+[ext_resource type="CompressedTexture3D" uid="uid://c4dp6g6gouj2b" path="res://volumetric sky/worlnoise.bmp" id="3_1m4bc"]
+
+[resource]
+shader = ExtResource("1_0w11w")
+shader_parameter/worlnoise = ExtResource("3_1m4bc")
+shader_parameter/perlworlnoise = ExtResource("2_1m4bc")
+shader_parameter/weathermap = ExtResource("2_xmugm")
+shader_parameter/wind_direction = Vector2(1, 0)
+shader_parameter/wind_speed = 1.0
+shader_parameter/_density = 0.05
+shader_parameter/cloud_coverage = 0.25
+shader_parameter/_time_offset = 0.0
+shader_parameter/rayleigh = 2.0
+shader_parameter/rayleigh_color = Color(0.26, 0.41, 0.58, 1)
+shader_parameter/mie = 0.005
+shader_parameter/mie_eccentricity = 0.8
+shader_parameter/mie_color = Color(0.63, 0.77, 0.92, 1)
+shader_parameter/turbidity = 10.0
+shader_parameter/sun_disk_scale = 1.0
+shader_parameter/ground_color = Color(1, 1, 1, 1)
+shader_parameter/exposure = 0.1

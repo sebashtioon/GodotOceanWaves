@@ -1,5 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dx4r13gqfh13"]
 
+[ext_resource type="Material" uid="uid://blhxwp3wkkdfc" path="res://sky.tres" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://assets/water/wave_cascade_parameters.gd" id="2_pw5n6"]
 [ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://assets/water/mat_water.tres" id="5_lt75t"]
 [ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://assets/water/clipmap_high.obj" id="5_n61pp"]
@@ -11,21 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://dtm5tyuh2slqt" path="res://assets/water/sea_spray.png" id="10_spqpo"]
 [ext_resource type="Texture2D" uid="uid://d3nk0ux11pdyv" path="res://Subnautica_logo.png" id="11_efxa6"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_efxa6"]
-sun_angle_max = 8.82
-
 [sub_resource type="Sky" id="Sky_vroi3"]
-sky_material = SubResource("ProceduralSkyMaterial_efxa6")
+sky_material = ExtResource("1_efxa6")
 
 [sub_resource type="Environment" id="Environment_icybu"]
 background_mode = 2
 sky = SubResource("Sky_vroi3")
-tonemap_mode = 2
+tonemap_mode = 3
 fog_mode = 1
 fog_light_color = Color(0.272954, 0.419272, 0.484632, 1)
 fog_sun_scatter = 0.05
 fog_density = 1.0
-fog_aerial_perspective = 0.626
 fog_sky_affect = 0.0
 fog_depth_curve = 0.25
 fog_depth_begin = 200.0
@@ -103,17 +100,6 @@ edge_fade = 1.75
 
 [node name="Environment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_icybu")
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.852488, 0.102681, -0.512563, -0.00840572, 0.983084, 0.18296, 0.522679, -0.151663, 0.838931, 0, 10, 0)
-light_color = Color(1, 0.847425, 0.555055, 1)
-light_energy = 2.639
-light_angular_distance = 0.43
-shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 6.464
-shadow_opacity = 0.8
-shadow_blur = 5.0
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 25)

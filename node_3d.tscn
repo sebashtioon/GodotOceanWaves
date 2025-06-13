@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcgus7nraddr7"]
+
+[ext_resource type="Material" uid="uid://blhxwp3wkkdfc" path="res://sky.tres" id="1_a202f"]
+
+[sub_resource type="Sky" id="Sky_noarx"]
+sky_material = ExtResource("1_a202f")
+
+[sub_resource type="Environment" id="Environment_a0tk4"]
+background_mode = 2
+sky = SubResource("Sky_noarx")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a0tk4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
