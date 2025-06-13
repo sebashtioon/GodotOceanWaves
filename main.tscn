@@ -143,3 +143,6 @@ texture = ExtResource("11_efxa6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 4.33002e-09, 0.998773, 0.0495296, -8.73155e-08, 0.0495296, -0.998773, 0, 2.56829, -7.83363)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.690762, 0.411322, -0.594695, -0.179732, 0.894303, 0.409779, 0.700388, -0.176174, 0.691678, 0, 0, 0)

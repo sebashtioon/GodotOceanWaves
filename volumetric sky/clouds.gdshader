@@ -261,6 +261,6 @@ void sky() {
 	} else if (AT_CUBEMAP_PASS) {
 		COLOR = QUARTER_RES_COLOR.rgb;
 	} else {
-		COLOR = HALF_RES_COLOR.rgb; // Change to col.rgb for full resolution
+		COLOR = col.rgb;
 	}
 }
