@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dx4r13gqfh13"]
+[gd_scene load_steps=21 format=3 uid="uid://dx4r13gqfh13"]
 
 [ext_resource type="Material" uid="uid://blhxwp3wkkdfc" path="res://sky.tres" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://assets/water/wave_cascade_parameters.gd" id="2_pw5n6"]
@@ -27,6 +27,7 @@ fog_sky_affect = 0.0
 fog_depth_curve = 0.25
 fog_depth_begin = 200.0
 fog_depth_end = 350.0
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 volumetric_fog_length = 256.0
 adjustment_brightness = 0.85
@@ -39,10 +40,10 @@ tile_length = Vector2(88, 88)
 displacement_scale = 1.0
 normal_scale = 1.0
 wind_speed = 0.335
-wind_direction = -241.818
+wind_direction = -215.636
 fetch_length = 150.0
 swell = 0.8
-spread = 0.691
+spread = 0.0
 detail = 0.855
 whitecap = 0.5
 foam_amount = 8.0
@@ -90,42 +91,15 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 
 [sub_resource type="QuadMesh" id="QuadMesh_06d3e"]
 
-[sub_resource type="FogMaterial" id="FogMaterial_riff4"]
-density = 8.0
-albedo = Color(0.988718, 0.989631, 0.989629, 1)
-height_falloff = 0.176
-edge_fade = 1.75
-
 [node name="Main" type="Node3D"]
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="Node" parent="."]
+
+[node name="Environment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_icybu")
 
-[node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 25)
-sorting_offset = 999.0
-material_override = ExtResource("5_lt75t")
-cast_shadow = 0
-extra_cull_margin = 10000.0
-mesh = ExtResource("5_n61pp")
-skeleton = NodePath("")
-script = ExtResource("7_s0x5e")
-water_color = Color(0.0365399, 0.161249, 0.184746, 1)
-parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
-map_size = 512
-
-[node name="WaterSprayEmitter" type="GPUParticles3D" parent="Water"]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
-material_override = SubResource("ShaderMaterial_ds3o1")
-cast_shadow = 0
-amount = 32768
-lifetime = 6.0
-process_material = ExtResource("9_skbf4")
-draw_pass_1 = SubResource("QuadMesh_06d3e")
-
-[node name="FogVolume" type="FogVolume" parent="."]
-shape = 4
-material = SubResource("FogMaterial_riff4")
+[node name="Sun" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(0.690762, 0.411321, -0.594695, -0.179732, 0.894303, 0.409779, 0.700388, -0.176174, 0.691678, 0, 0, 0)
 
 [node name="OceanAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jpklm")
@@ -137,12 +111,33 @@ stream = ExtResource("8_6r5si")
 volume_db = -30.0
 autoplay = true
 
-[node name="Logo" type="Sprite3D" parent="."]
-transform = Transform3D(-3.18702, 0, 2.78618e-07, 0, 3.18702, 0, -2.78618e-07, 0, -3.18702, 0, 1.30869, 11.445)
-texture = ExtResource("11_efxa6")
-
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, 4.33002e-09, 0.998773, 0.0495296, -8.73155e-08, 0.0495296, -0.998773, 0, 2.56829, -7.83363)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.690762, 0.411322, -0.594695, -0.179732, 0.894303, 0.409779, 0.700388, -0.176174, 0.691678, 0, 0, 0)
+[node name="Physical" type="Node" parent="."]
+
+[node name="Water" type="MeshInstance3D" parent="Physical"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 25)
+sorting_offset = 999.0
+material_override = ExtResource("5_lt75t")
+cast_shadow = 0
+extra_cull_margin = 10000.0
+mesh = ExtResource("5_n61pp")
+skeleton = NodePath("")
+script = ExtResource("7_s0x5e")
+water_color = Color(0.0239199, 0.164586, 0.157482, 1)
+parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
+map_size = 512
+
+[node name="WaterSprayEmitter" type="GPUParticles3D" parent="Physical/Water"]
+transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_ds3o1")
+cast_shadow = 0
+amount = 32768
+lifetime = 6.0
+process_material = ExtResource("9_skbf4")
+draw_pass_1 = SubResource("QuadMesh_06d3e")
+
+[node name="Logo" type="Sprite3D" parent="Physical"]
+transform = Transform3D(-3.18702, 0, 2.78618e-07, 0, 3.18702, 0, -2.78618e-07, 0, -3.18702, 0, 1.30869, 11.445)
+texture = ExtResource("11_efxa6")
