@@ -36,15 +36,15 @@ adjustment_saturation = 1.5
 
 [sub_resource type="Resource" id="Resource_adqv5"]
 script = ExtResource("2_pw5n6")
-tile_length = Vector2(88, 88)
-displacement_scale = 1.0
+tile_length = Vector2(200, 200)
+displacement_scale = 1.255
 normal_scale = 1.0
-wind_speed = 0.335
-wind_direction = -215.636
+wind_speed = 0.86
+wind_direction = -58.545
 fetch_length = 150.0
-swell = 0.8
-spread = 0.0
-detail = 0.855
+swell = 1.455
+spread = 0.642
+detail = 1.0
 whitecap = 0.5
 foam_amount = 8.0
 
@@ -99,7 +99,7 @@ shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
 environment = SubResource("Environment_icybu")
 
 [node name="Sun" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(0.690762, 0.411321, -0.594695, -0.179732, 0.894303, 0.409779, 0.700388, -0.176174, 0.691678, 0, 0, 0)
+transform = Transform3D(0.690762, 0.411321, -0.594695, -0.276193, 0.910173, 0.308712, 0.668255, -0.0489962, 0.742317, 0, 0, 0)
 
 [node name="OceanAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_jpklm")
@@ -112,7 +112,7 @@ volume_db = -30.0
 autoplay = true
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 4.33002e-09, 0.998773, 0.0495296, -8.73155e-08, 0.0495296, -0.998773, 0, 2.56829, -7.83363)
+transform = Transform3D(-1, 1.09442e-15, 8.74228e-08, 9.82073e-09, 0.99367, 0.112336, -8.68694e-08, 0.112336, -0.99367, 0, 2.45669, -7.83363)
 
 [node name="Physical" type="Node" parent="."]
 
@@ -128,6 +128,7 @@ script = ExtResource("7_s0x5e")
 water_color = Color(0.0239199, 0.164586, 0.157482, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
 map_size = 512
+updates_per_second = 60.0
 
 [node name="WaterSprayEmitter" type="GPUParticles3D" parent="Physical/Water"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
@@ -139,5 +140,6 @@ process_material = ExtResource("9_skbf4")
 draw_pass_1 = SubResource("QuadMesh_06d3e")
 
 [node name="Logo" type="Sprite3D" parent="Physical"]
-transform = Transform3D(-3.18702, 0, 2.78618e-07, 0, 3.18702, 0, -2.78618e-07, 0, -3.18702, 0, 1.30869, 11.445)
+transform = Transform3D(-3.18702, 0, 2.78618e-07, 0, 3.18702, 0, -2.78618e-07, 0, -3.18702, 0, 1.55751, 11.445)
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
 texture = ExtResource("11_efxa6")
