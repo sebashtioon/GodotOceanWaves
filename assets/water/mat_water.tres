@@ -5,6 +5,8 @@
 [resource]
 render_priority = 1
 shader = ExtResource("1_uffek")
-shader_parameter/roughness = 0.65
-shader_parameter/normal_strength = 1.0
+shader_parameter/water_color = Color(0.0382756, 0.198659, 0.206356, 1)
+shader_parameter/foam_color = Color(0.73, 0.67, 0.62, 1)
+shader_parameter/roughness = 0.02
+shader_parameter/normal_strength = 0.728
 shader_parameter/map_scales = PackedVector4Array(0.005, 0.005, 1.255, 1, 0.0175439, 0.0175439, 0.75, 1, 0.0625, 0.0625, 0, 0.25)
