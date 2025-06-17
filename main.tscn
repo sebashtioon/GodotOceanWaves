@@ -78,7 +78,7 @@ foam_amount = 4.079
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_k6xhe"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsx6q"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_efxa6"]
 seamless = true
 noise = SubResource("FastNoiseLite_k6xhe")
 
@@ -87,7 +87,7 @@ render_priority = 0
 shader = ExtResource("8_eu8jb")
 shader_parameter/max_alpha = 0.666
 shader_parameter/albedo_texture = ExtResource("10_spqpo")
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_tsx6q")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_efxa6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_06d3e"]
 
