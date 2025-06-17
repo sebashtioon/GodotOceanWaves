@@ -37,15 +37,15 @@ adjustment_saturation = 1.5
 [sub_resource type="Resource" id="Resource_adqv5"]
 script = ExtResource("2_pw5n6")
 tile_length = Vector2(200, 200)
-displacement_scale = 1.255
-normal_scale = 1.0
+displacement_scale = 1.061
+normal_scale = 1.436
 wind_speed = 0.86
 wind_direction = -58.545
 fetch_length = 150.0
-swell = 1.455
-spread = 0.642
+swell = 0.497
+spread = 0.394
 detail = 1.0
-whitecap = 0.5
+whitecap = 0.0
 foam_amount = 8.0
 
 [sub_resource type="Resource" id="Resource_luhq0"]
@@ -74,7 +74,7 @@ swell = 0.8
 spread = 0.4
 detail = 1.0
 whitecap = 0.287
-foam_amount = 3.291
+foam_amount = 4.079
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_k6xhe"]
 
@@ -125,7 +125,6 @@ extra_cull_margin = 10000.0
 mesh = ExtResource("5_n61pp")
 skeleton = NodePath("")
 script = ExtResource("7_s0x5e")
-water_color = Color(0.0239199, 0.164586, 0.157482, 1)
 parameters = Array[ExtResource("2_pw5n6")]([SubResource("Resource_adqv5"), SubResource("Resource_luhq0"), SubResource("Resource_83u3u")])
 map_size = 512
 updates_per_second = 60.0
