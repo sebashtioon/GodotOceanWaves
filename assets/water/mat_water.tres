@@ -8,5 +8,5 @@ shader = ExtResource("1_uffek")
 shader_parameter/water_color = Color(0.0495773, 0.178296, 0.173424, 1)
 shader_parameter/foam_color = Color(0.73, 0.67, 0.62, 1)
 shader_parameter/roughness = 0.02
-shader_parameter/normal_strength = 0.728
+shader_parameter/normal_strength = 0.676
 shader_parameter/map_scales = PackedVector4Array(0.005, 0.005, 1.061, 1.436, 0.0175439, 0.0175439, 0.75, 1, 0.0625, 0.0625, 0, 0.25)
